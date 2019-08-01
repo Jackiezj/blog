@@ -1,23 +1,21 @@
 $(function () {
     //当表单提交时，调用所有的校验方法
-    $("#registerForm").submit(function(){
+    $("#registerForm").submit(function () {
         //1.发送数据到服务器
-        if(checkUsername() && checkPassword() && checkEmail()){
+        if (checkUsername() && checkPassword() && checkEmail()) {
             //校验通过,发送ajax请求，提交表单的数据   username=zhangsan&password=123
-
-            $.post("/user/regist",$(this).serialize(),function(data){
+            $.post("/user/register", $(this).serialize(), function (data) {
                 //处理服务器响应的数据  data  {flag:true,errorMsg:"注册失败"}
 
-                if(data.flag){
+                if (data.flag) {
                     //注册成功，跳转成功页面
-                    location.href="index.html";
-                }else{
+                    location.href = "index.html";
+                } else {
                     //注册失败,给errorMsg添加提示信息
                     $("#errorMsg").html(data.errorMsg);
 
                 }
             });
-
         }
         //2.不让页面跳转
         return false;
@@ -28,6 +26,7 @@ $(function () {
     $("#password").blur(checkPassword);
     $("#password2").blur(checkPassword2);
     $("#email").blur(checkEmail);
+    $("#getEmailCode").click(getEmailCode);
 });
 
 function checkUsername() {
@@ -38,10 +37,10 @@ function checkUsername() {
 
     //3.判断，给出提示信息
     var flag = reg_username.test(username);
-    if(flag){
+    if (flag) {
         //用户名合法
         $("#usernameArrorMsg").html("");
-    }else{
+    } else {
         //用户名非法,加一个红色边框
         $("#usernameArrorMsg").html("用户名不合法, 请输入4-20位用户名");
     }
@@ -58,10 +57,10 @@ function checkPassword() {
 
     //3.判断，给出提示信息
     var flag = reg_password.test(password);
-    if(flag){
+    if (flag) {
         //密码合法
         $("#passwordArrorMsg").html("");
-    }else{
+    } else {
         //密码非法,加一个红色边框
         $("#passwordArrorMsg").html("密码不合法");
     }
@@ -77,10 +76,10 @@ function checkPassword2() {
 
     //3.判断，给出提示信息
     var flag = password == password2;
-    if(flag){
+    if (flag) {
         //密码合法
         $("#passwordArrorMsg2").html("");
-    }else{
+    } else {
         //密码非法,加一个红色边框
         $("#passwordArrorMsg2").html("两次密码不一致");
     }
@@ -89,7 +88,7 @@ function checkPassword2() {
 }
 
 //校验邮箱
-function checkEmail(){
+function checkEmail() {
     //1.获取邮箱
     var email = $("#email").val();
     //2.定义正则		itcast@163.com
@@ -97,11 +96,35 @@ function checkEmail(){
 
     //3.判断
     var flag = reg_email.test(email);
-    if(flag){
+    if (flag) {
         $("#emailArrorMsg").html("");
-    }else{
+    } else {
         $("#emailArrorMsg").html("邮箱格式不正确");
     }
 
     return flag;
+}
+
+function getEmailCode() {
+    var email = $("#email").val();
+    var d = {
+        "email": email
+    };
+    $.post("/user/sendEmailCode", d, function (data) {
+        if (data.flag) {
+            initTime = 60;
+            setInterval(function () {
+                initTime = initTime - 1;
+                if (initTime > 0) {
+                    $("#getEmailCode").html(initTime + "秒后重试");
+                    $("#getEmailCode").attr("disabled", "true");
+                } else {
+                    $("#getEmailCode").html("获取验证码");
+                }
+            }, 1000);
+        } else {
+            alert(data.errorMsg)
+        }
+    })
+
 }
