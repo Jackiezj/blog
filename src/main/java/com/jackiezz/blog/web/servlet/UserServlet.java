@@ -21,13 +21,38 @@ public class UserServlet extends BaseServlet {
     private ResultInfo info = new ResultInfo();
     private UserService userService = new UserServiceImpl();
 
+    public boolean checkUsername(HttpServletRequest request, HttpServletResponse response) {
+        // 获取参数
+        String username = request.getParameter("username");
+        if (username == null) {
+            info.setFlag(false);
+            info.setErrorMsg("请传入正确的参数username");
+            writeValue(info, response);
+            return false;
+        }
+
+        // 与数据库交互
+        User user = userService.findByUsername(username);
+        if (user != null) {
+            info.setFlag(false);
+            info.setErrorMsg("用户名已经存在,请更换");
+            writeValue(info, response);
+            return false;
+        } else {
+            info.setFlag(true);
+            info.setErrorMsg("用户名可以使用");
+            writeValue(info, response);
+        }
+        return true;
+    }
+
     public void register (HttpServletRequest request, HttpServletResponse response) {
         // 获取参数
         Map<String, String[]> parameterMap = request.getParameterMap();
         String username = request.getParameter("username");
         String emailCode = request.getParameter("emailCode");
         // 校验参数
-        if (username != null && username.length() < 6) {
+        if (username != null && username.length() < 6 || this.checkUsername(request, response)) {
             info.setFlag(false);
             info.setErrorMsg("用户名不合法");
             writeValue(info, response);

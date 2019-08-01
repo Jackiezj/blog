@@ -4,4 +4,6 @@ import com.jackiezz.blog.domain.User;
 
 public interface UserService {
     void addUser(User user);
+
+    User findByUsername(String username);
 }

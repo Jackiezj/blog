@@ -45,6 +45,16 @@ function checkUsername() {
         $("#usernameArrorMsg").html("用户名不合法, 请输入4-20位用户名");
     }
 
+    $.get("/user/checkUsername", {"username": username}, function (data) {
+        if (data.flag) {
+            $("#usernameArrorMsg").html("用户名尚未被注册, 可以使用!");
+            $("#usernameArrorMsg").css("color", "green");
+        } else {
+            $("#usernameArrorMsg").html("用户名太受欢迎了, 请换一个吧!");
+            $("#usernameArrorMsg").css("color", "red");
+        }
+    });
+
     return flag;
 }
 
