@@ -12,33 +12,15 @@
 
     <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
     <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script rel="script" src="../../js/vue/vue-2.5.16.js"></script>
-    <script rel="script" src="../../js/vue/axios-0.18.0.min.js"></script>
     <script rel="script" src="../../js/base/host.js"></script>
 
+    <script src="/js/base/include.js"></script>
+    <script src="/js/base/register.js"></script>
 
 </head>
 <body>
 <!--头部-->
-<!--<div class="page-width header">-->
-<!--    <div class="header-logo">-->
-<!--        <a href="#"><img src="../../images/logo/logo.png"></a>-->
-<!--    </div>-->
-<!--    <div class="nav header-nav-link">-->
-<!--        <a class="" href="#">登录/注册</a>-->
-<!--        <a class="border-bottom border-success" href="../blog/blogIndex.html">Blog</a>-->
-<!--        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>-->
-<!--        <a class="" href="../books/booksIndex.html">Books</a>-->
-<!--        <a class="" href="#">Tools</a>-->
-<!--    </div>-->
-<!--    <div class="header-search">-->
-<!--        <form class="my-2 my-lg-0">-->
-<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<hr>-->
+<!--<div class="page-width header" id="header"></div>-->
 
 <!--中部-->
 <div class="page-width body">
@@ -50,7 +32,7 @@
 
         </div>
         <div class="register_content" id="app">
-            <form>
+            <form id="registerForm" action="" method="post">
                 <div class="user_register font-weight-bold">用户注册</div>
                 <div class="user_login"><a href="login.html" class="user_login_a">已有账号? 登录</a></div>
                 <div class="clear_float"></div>
@@ -59,47 +41,43 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">用户名:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" v-model="username" @blur="check_username">
+                    <input type="text" class="form-control form-control-lg" name="username" id="username" placeholder="请输入4-20位用户名">
                 </div>
-                <p class="error-message" v-show="error_name">{{error_name_message}}</p>
+                <p class="error-message" id="usernameArrorMsg"><p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">密码:</span>
                     </div>
-                    <input type="password" class="form-control form-control-lg" v-model="password" @blur="check_pwd">
+                    <input type="password" class="form-control form-control-lg" name="password" id="password" placeholder="请输入6-20位密码">
                 </div>
-                <p class="error-message" v-show="error_password">{{error_password_message}}</p>
+                <p class="error-message" id="passwordArrorMsg"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">确认密码:</span>
                     </div>
-                    <input type="password" class="form-control form-control-lg" v-model="password2" @blur="check_cpwd">
+                    <input type="password" class="form-control form-control-lg" name="password2" id="password2">
                 </div>
-                <p class="error-message" v-show="error_check_password">{{error_check_password_message}}</p>
+                <p class="error-message" id="passwordArrorMsg2"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">手机号:</span>
+                        <span class="input-group-text">邮箱:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" v-model="mobile" @blur="check_phone">
+                    <input type="text" class="form-control form-control-lg" name="email" id="email">
                 </div>
-                <p class="error-message" v-show="error_phone">{{error_phone_message}}</p>
+                <p class="error-message" id="emailArrorMsg"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">短信验证码:</span>
+                        <span class="input-group-text">邮箱验证码:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" v-model="sms_code" @blur="check_sms_code">
-                    <button type="button" class="btn get-sms-code">获取验证码</button>
+                    <input type="text" class="form-control form-control-lg" name="emailCode">
+                    <button type="button" class="btn get-sms-code" id="getEmailCode">获取验证码</button>
                 </div>
-                <p class="error-message" v-show="error_sms_code">{{error_sms_code_message}}</p>
-
-                <!--            <div class="input-group mb-3">-->
-                <!--                <input type="checkbox" checked="checked"><label>请同意用户协议</label>-->
-                <!--            </div>-->
-                <button type="button" class="btn btn-success register_button">注册</button>
+                    <p class="error-message" id="errorMsg"></p>
+                <input type="submit" class="btn btn-success register_button" id="registerBtn" value="注册">
             </form>
         </div>
     </div>
@@ -108,32 +86,6 @@
 <br><br><br><br><br>
 <hr>
 <!--底部-->
-<div class="bottom page-width">
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">中国加油</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">传送门</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
-        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
-        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">成为铁杆粉</p>
-        <hr>
-        <br>
-        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
-    </div>
-</div>
+<div class="bottom page-width" id="footer"></div>
 </body>
-<script rel="script" src="../../js/base/register.js"></script>
 </html>

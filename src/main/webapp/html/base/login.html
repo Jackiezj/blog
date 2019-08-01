@@ -17,29 +17,12 @@
     <script rel="script" src="../../js/base/host.js"></script>
     <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="/js/base/include.js"></script>
+    <script src="/js/base/login.js"></script>
+
 
 </head>
 <body>
-<!--头部-->
-<!--<div class="page-width header">-->
-<!--    <div class="header-logo">-->
-<!--        <a href="#"><img src="../../images/logo/logo.png"></a>-->
-<!--    </div>-->
-<!--    <div class="nav header-nav-link">-->
-<!--        <a class="" href="#">登录/注册</a>-->
-<!--        <a class="border-bottom border-success" href="../blog/blogIndex.html">Blog</a>-->
-<!--        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>-->
-<!--        <a class="" href="../books/booksIndex.html">Books</a>-->
-<!--        <a class="" href="#">Tools</a>-->
-<!--    </div>-->
-<!--    <div class="header-search">-->
-<!--        <form class="my-2 my-lg-0">-->
-<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<hr>-->
 
 <!--中部-->
 <div class="page-width body">
@@ -55,23 +38,24 @@
             <div class="user_login"><a href="register.html" class="user_login_a">没有账号? 立即注册</a></div>
             <div class="clear_float"></div>
             <hr>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">用户名/手机:</span>
+            <form action="javascript:void(0)" method="post" id="loginForm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">用户名/手机:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" name="username">
                 </div>
-                <input type="text" class="form-control form-control-lg" v-model="username">
-            </div>
-            <p class="error-message" v-show="error_name">{{error_name_message}}</p>
+                <p class="error-message" id="errorUsernameMsg"></p>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">密码:</span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">密码:</span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg" name="password">
                 </div>
-                <input type="text" class="form-control form-control-lg" v-model="password">
-            </div>
-            <p class="error-message" v-show="error_password">{{error_password_message}}</p>
-
-            <button type="button" class="btn btn-success register_button">登录</button>
+                <p class="error-message" id="errorPasswordMsg"></p>
+                <input type="submit" class="btn btn-success register_button" value="登录">
+            </form>
         </div>
     </div>
 </div>
@@ -79,32 +63,7 @@
 <br><br><br><br><br>
 <hr>
 <!--底部-->
-<div class="bottom page-width">
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">中国加油</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">传送门</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
-        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
-        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">成为铁杆粉</p>
-        <hr>
-        <br>
-        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
-    </div>
-</div>
+<div class="bottom page-width" id="footer"></div>
 </body>
 <script rel="script" src="../../js/base/login.js"></script>
 </html>

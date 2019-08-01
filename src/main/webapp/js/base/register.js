@@ -1,206 +1,146 @@
-var vm = new Vue({
-    el: '#app',
-    data: {
-        host: host,
+$(function () {
+    //当表单提交时，调用所有的校验方法
+    $("#registerForm").submit(function () {
+        //1.发送数据到服务器
+        if (checkUsername() && checkPassword() && checkEmail()) {
+            //校验通过,发送ajax请求，提交表单的数据   username=zhangsan&password=123
+            $.post("/user/register", $(this).serialize(), function (data) {
+                //处理服务器响应的数据  data  {flag:true,errorMsg:"注册失败"}
 
-        error_name: false,
-        error_password: false,
-        error_check_password: false,
-        error_phone: false,
-        error_sms_code: false,
-        error_name_message: '',
-        error_password_message: '',
-        error_check_password_message: '',
-        error_phone_message: '',
-        error_sms_code_message: '',
+                if (data.flag) {
+                    //注册成功，跳转成功页面
+                    alert("注册成功, 请登录")
+                    location.href = "/html/base/login.html";
+                } else {
+                    //注册失败,给errorMsg添加提示信息
+                    $("#errorMsg").html(data.errorMsg);
 
-        sending_flag: false, // 正在发送短信标志
-
-        username: '',
-        password: '',
-        password2: '',
-        mobile: '',
-        sms_code: '',
-    },
-    mounted: function () {
-    },
-    methods: {
-
-        // 检查用户名
-        check_username: function () {
-            var len = this.username.length;
-            if (len < 5 || len > 20) {
-                this.error_name_message = '请输入5-20个字符的用户名';
-                this.error_name = true;
-            } else {
-                this.error_name = false;
-            }
-            // 检查重名
-
-            if (this.error_name == false) {
-                axios.get(this.host + '/usernames/' + this.username + '/count', {
-                    responseType: 'json'
-                })
-                    .then(response => {
-                        if (response.data.count > 0) {
-                            this.error_name_message = '用户名已存在';
-                            this.error_name = true;
-                        } else {
-                            this.error_name = false;
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error.response.data);
-                    })
-            }
-        },
-        check_pwd: function () {
-            var len = this.password.length;
-            if (len < 8 || len > 20) {
-                this.error_password_message = '请输入8-20个字符的密码';
-                this.error_password = true;
-            } else {
-                this.error_password = false;
-            }
-        },
-        check_cpwd: function () {
-            if (this.password != this.password2) {
-                this.error_check_password_message = '再次密码不一致';
-                this.error_check_password = true;
-            } else {
-                this.error_check_password = false;
-            }
-        },
-        // 检查手机号
-        check_phone: function () {
-            var re = /^1[345789]\d{9}$/;
-            if (re.test(this.mobile)) {
-                this.error_phone = false;
-            } else {
-                this.error_phone_message = '您输入的手机号格式不正确';
-                this.error_phone = true;
-            }
-            if (this.error_phone == false) {
-                axios.get(this.host + '/mobiles/' + this.mobile + '/count/', {
-                    responseType: 'json'
-                })
-                    .then(response => {
-                        if (response.data.count > 0) {
-                            this.error_phone_message = '手机号已存在';
-                            this.error_phone = true;
-                        } else {
-                            this.error_phone = false;
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error.response.data);
-                    })
-            }
-        },
-        check_sms_code: function () {
-            if (!this.sms_code) {
-                this.error_sms_code_message = '请填写短信验证码';
-                this.error_sms_code = true;
-            } else {
-                this.error_sms_code = false;
-            }
-        },
-        // 发送手机短信验证码
-        send_sms_code: function () {
-            if (this.sending_flag == true) {
-                return;
-            }
-            this.sending_flag = true;
-
-            // 校验参数，保证输入框有数据填写
-            this.check_phone();
-            this.check_image_code();
-
-            if (this.error_phone == true || this.error_image_code == true) {
-                this.sending_flag = false;
-                return;
-            }
-
-            // 向后端接口发送请求，让后端发送短信验证码
-            axios.get(this.host + '/sms_codes/' + this.mobile + '/?text=' + this.image_code + '&image_code_id=' + this.image_code_id, {
-                responseType: 'json'
-            })
-                .then(response => {
-                    // 表示后端发送短信成功
-                    // 倒计时60秒，60秒后允许用户再次点击发送短信验证码的按钮
-                    var num = 60;
-                    // 设置一个计时器
-                    var t = setInterval(() => {
-                        if (num == 1) {
-                            // 如果计时器到最后, 清除计时器对象
-                            clearInterval(t);
-                            // 将点击获取验证码的按钮展示的文本回复成原始文本
-                            this.sms_code_tip = '获取短信验证码';
-                            // 将点击按钮的onclick事件函数恢复回去
-                            this.sending_flag = false;
-                        } else {
-                            num -= 1;
-                            // 展示倒计时信息
-                            this.sms_code_tip = num + '秒';
-                        }
-                    }, 1000, 60)
-                })
-                .catch(error => {
-                    if (error.response.status == 400) {
-                        this.error_image_code_message = '图片验证码有误';
-                        this.error_image_code = true;
-                        this.generate_image_code();
-                    } else {
-                        console.log(error.response.data);
-                    }
-                    this.sending_flag = false;
-                })
-        },
-        // 注册
-        on_submit: function () {
-            this.check_username();
-            this.check_pwd();
-            this.check_cpwd();
-            this.check_phone();
-            this.check_sms_code();
-
-            if (this.error_name == false && this.error_password == false && this.error_check_password == false
-                && this.error_phone == false && this.error_sms_code == false && this.error_allow == false) {
-
-                axios.post(this.host + '/users/', {
-                    username: this.username,
-                    password: this.password,
-                    password2: this.password2,
-                    mobile: this.mobile,
-                    sms_code: this.sms_code,
-                    allow: this.allow.toString()
-                }, {
-                    responseType: 'json'
-                })
-                    .then(response => {
-                        // 记录用户的登录状态
-                        sessionStorage.clear();
-                        localStorage.clear();
-
-                        localStorage.token = response.data.token;
-                        localStorage.username = response.data.username;
-                        localStorage.user_id = response.data.id;
-
-                        location.href = '/index.html';
-                    })
-                    .catch(error => {
-                        if (error.response.status == 400) {
-                            if ('non_field_errors' in error.response.data) {
-                                this.error_sms_code_message = error.response.data.non_field_errors[0];
-                            } else {
-                                this.error_sms_code_message = '数据有误';
-                            }
-                            this.error_sms_code = true;
-                        } else {
-                            console.log(error.response.data);
-                        }
-                    })
-            }
+                }
+            });
         }
-    }
+        //2.不让页面跳转
+        return false;
+        //如果这个方法没有返回值，或者返回为true，则表单提交，如果返回为false，则表单不提交
+    });
+    //当某一个组件失去焦点是，调用对应的校验方法
+    $("#username").blur(checkUsername);
+    $("#password").blur(checkPassword);
+    $("#password2").blur(checkPassword2);
+    $("#email").blur(checkEmail);
+    $("#getEmailCode").click(getEmailCode);
 });
+
+function checkUsername() {
+    //1.获取用户名值
+    var username = $("#username").val();
+    //2.定义正则
+    var reg_username = /^\w{4,20}$/;
+
+    //3.判断，给出提示信息
+    var flag = reg_username.test(username);
+    if (flag) {
+        //用户名合法
+        $("#usernameArrorMsg").html("");
+    } else {
+        //用户名非法,加一个红色边框
+        $("#usernameArrorMsg").html("用户名不合法, 请输入4-20位用户名");
+    }
+
+    $.get("/user/checkUsername", {"username": username}, function (data) {
+        if (data.flag) {
+            $("#usernameArrorMsg").html("用户名尚未被注册, 可以使用!");
+            $("#usernameArrorMsg").css("color", "green");
+        } else {
+            $("#usernameArrorMsg").html("用户名太受欢迎了, 请换一个吧!");
+            $("#usernameArrorMsg").css("color", "red");
+        }
+    });
+
+    return flag;
+}
+
+//校验密码
+function checkPassword() {
+    //1.获取密码值
+    var password = $("#password").val();
+    //2.定义正则
+    var reg_password = /^\w{6,20}$/;
+
+    //3.判断，给出提示信息
+    var flag = reg_password.test(password);
+    if (flag) {
+        //密码合法
+        $("#passwordArrorMsg").html("");
+    } else {
+        //密码非法,加一个红色边框
+        $("#passwordArrorMsg").html("密码不合法");
+    }
+
+    return flag;
+}
+
+//校验密码
+function checkPassword2() {
+    //1.获取密码值
+    var password = $("#password").val();
+    var password2 = $("#password2").val();
+
+    //3.判断，给出提示信息
+    var flag = password == password2;
+    if (flag) {
+        //密码合法
+        $("#passwordArrorMsg2").html("");
+    } else {
+        //密码非法,加一个红色边框
+        $("#passwordArrorMsg2").html("两次密码不一致");
+    }
+
+    return flag;
+}
+
+//校验邮箱
+function checkEmail() {
+    //1.获取邮箱
+    var email = $("#email").val();
+    //2.定义正则		itcast@163.com
+    var reg_email = /^\w+@\w+\.\w+$/;
+
+    //3.判断
+    var flag = reg_email.test(email);
+    if (flag) {
+        $("#emailArrorMsg").html("");
+    } else {
+        $("#emailArrorMsg").html("邮箱格式不正确");
+    }
+    $.get("/user/checkEmail", {"email": email}, function (data) {
+        if (!data.flag) {
+            $("#emailArrorMsg").html("邮箱已经被注册, 请直接登录或更换其它邮箱");
+        }
+    });
+
+    return flag;
+}
+
+function getEmailCode() {
+    var email = $("#email").val();
+    var d = {
+        "email": email
+    };
+    $.post("/user/sendEmailCode", d, function (data) {
+        if (data.flag) {
+            initTime = 60;
+            setInterval(function () {
+                initTime = initTime - 1;
+                if (initTime > 0) {
+                    $("#getEmailCode").html(initTime + "秒后重试");
+                    $("#getEmailCode").attr("disabled", "true");
+                } else {
+                    $("#getEmailCode").html("获取验证码");
+                }
+            }, 1000);
+        } else {
+            alert(data.errorMsg)
+        }
+    })
+
+}
