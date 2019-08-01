@@ -21,6 +21,11 @@ public class UserServlet extends BaseServlet {
     private ResultInfo info = new ResultInfo();
     private UserService userService = new UserServiceImpl();
 
+    public void getLoginUser(HttpServletRequest request, HttpServletResponse response) {
+        User user = (User) request.getSession().getAttribute("user");
+        writeValue(user, response);
+    }
+
     public void login(HttpServletRequest request, HttpServletResponse response) {
         ResultInfo info = new ResultInfo();
         Map<String, String[]> parameterMap = request.getParameterMap();
@@ -37,6 +42,7 @@ public class UserServlet extends BaseServlet {
         if (loginUser != null) {
             info.setFlag(true);
             info.setErrorMsg("登录成功");
+            request.getSession().setAttribute("user", loginUser);
         } else {
             info.setFlag(false);
             info.setErrorMsg("用户名或密码错误");
