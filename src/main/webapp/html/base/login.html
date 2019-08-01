@@ -18,6 +18,7 @@
     <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="/js/base/include.js"></script>
+    <script src="/js/base/login.js"></script>
 
 
 </head>
@@ -37,7 +38,7 @@
             <div class="user_login"><a href="register.html" class="user_login_a">没有账号? 立即注册</a></div>
             <div class="clear_float"></div>
             <hr>
-            <form action="" method="post" id="loginForm">
+            <form action="javascript:void(0)" method="post" id="loginForm">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">用户名/手机:</span>
@@ -50,7 +51,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">密码:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg" name="password">
+                    <input type="password" class="form-control form-control-lg" name="password">
                 </div>
                 <p class="error-message" id="errorPasswordMsg"></p>
                 <input type="submit" class="btn btn-success register_button" value="登录">

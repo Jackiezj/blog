@@ -21,6 +21,29 @@ public class UserServlet extends BaseServlet {
     private ResultInfo info = new ResultInfo();
     private UserService userService = new UserServiceImpl();
 
+    public void login(HttpServletRequest request, HttpServletResponse response) {
+        ResultInfo info = new ResultInfo();
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        User user = new User();
+        try {
+            BeanUtils.populate(user, parameterMap);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        // 查询数据库
+        User loginUser = userService.login(user);
+        if (loginUser != null) {
+            info.setFlag(true);
+            info.setErrorMsg("登录成功");
+        } else {
+            info.setFlag(false);
+            info.setErrorMsg("用户名或密码错误");
+        }
+        writeValue(info, response);
+    }
+
     public boolean checkUsername(HttpServletRequest request, HttpServletResponse response) {
         // 获取参数
         String username = request.getParameter("username");
