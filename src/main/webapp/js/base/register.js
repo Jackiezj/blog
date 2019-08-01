@@ -9,7 +9,8 @@ $(function () {
 
                 if (data.flag) {
                     //注册成功，跳转成功页面
-                    location.href = "/index.html";
+                    alert("注册成功, 请登录")
+                    location.href = "/html/base/login.html";
                 } else {
                     //注册失败,给errorMsg添加提示信息
                     $("#errorMsg").html(data.errorMsg);
@@ -111,6 +112,11 @@ function checkEmail() {
     } else {
         $("#emailArrorMsg").html("邮箱格式不正确");
     }
+    $.get("/user/checkEmail", {"email": email}, function (data) {
+        if (!data.flag) {
+            $("#emailArrorMsg").html("邮箱已经被注册, 请直接登录或更换其它邮箱");
+        }
+    });
 
     return flag;
 }

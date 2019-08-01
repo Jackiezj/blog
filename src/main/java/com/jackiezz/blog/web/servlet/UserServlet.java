@@ -32,16 +32,25 @@ public class UserServlet extends BaseServlet {
         }
 
         // 与数据库交互
+        if (checkUsernameDemo(username)) {
+            writeValue(info, response);
+            return false;
+        } else {
+            writeValue(info, response);
+            return true;
+        }
+    }
+
+    public boolean checkUsernameDemo(String username) {
+        // 与数据库交互
         User user = userService.findByUsername(username);
         if (user != null) {
             info.setFlag(false);
             info.setErrorMsg("用户名已经存在,请更换");
-            writeValue(info, response);
             return false;
         } else {
             info.setFlag(true);
             info.setErrorMsg("用户名可以使用");
-            writeValue(info, response);
         }
         return true;
     }
@@ -50,15 +59,18 @@ public class UserServlet extends BaseServlet {
         // 获取参数
         Map<String, String[]> parameterMap = request.getParameterMap();
         String username = request.getParameter("username");
+        String email = request.getParameter("email");
         String emailCode = request.getParameter("emailCode");
         // 校验参数
-        if (username != null && username.length() < 6 || this.checkUsername(request, response)) {
+        if (username == null || username.length() < 6 || !checkUsernameDemo(username) || !checkEmailDemo(email)) {
             info.setFlag(false);
-            info.setErrorMsg("用户名不合法");
+            info.setErrorMsg("用户名或邮箱不合法");
             writeValue(info, response);
             return;
         }
+
         Object realEmailCode = request.getSession().getAttribute("emailCode");
+        request.getSession().removeAttribute("emailCode");
         if (realEmailCode == null || !realEmailCode.equals(emailCode)) {
             info.setFlag(false);
             info.setErrorMsg("验证码不正确");
@@ -80,6 +92,36 @@ public class UserServlet extends BaseServlet {
         // 返回响应
         writeValue(info, response);
 
+    }
+
+    public boolean checkEmail(HttpServletRequest request, HttpServletResponse response) {
+        // 获取参数
+        String email = request.getParameter("email");
+        if (email == null) {
+            info.setFlag(false);
+            info.setErrorMsg("请传入正确的参数email");
+            writeValue(info, response);
+            return false;
+        }
+        // 与数据库交互
+        if (checkEmailDemo(email)) {
+            writeValue(info, response);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkEmailDemo (String email) {
+        User user = userService.findByEmail(email);
+        if (user != null) {
+            info.setFlag(false);
+            info.setErrorMsg("邮箱已经存在,请更换");
+            return false;
+        } else {
+            info.setFlag(true);
+            info.setErrorMsg("邮箱可以使用");
+        }
+        return true;
     }
 
     public void sendEmailCode(HttpServletRequest request, HttpServletResponse response) {

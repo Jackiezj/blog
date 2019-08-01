@@ -30,4 +30,16 @@ public class UserDaoImpl implements UserDao {
         }
         return user;
     }
+
+    @Override
+    public User findByEmail(String email) {
+        User user = null;
+        String sql = "select * from user where email = ?";
+        try {
+            user = template.queryForObject(sql, new BeanPropertyRowMapper<User>(User.class), email);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
 }
