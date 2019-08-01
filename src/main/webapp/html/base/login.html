@@ -37,23 +37,24 @@
             <div class="user_login"><a href="register.html" class="user_login_a">没有账号? 立即注册</a></div>
             <div class="clear_float"></div>
             <hr>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">用户名/手机:</span>
+            <form action="" method="post" id="loginForm">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">用户名/手机:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" name="username">
                 </div>
-                <input type="text" class="form-control form-control-lg" v-model="username">
-            </div>
-            <p class="error-message" v-show="error_name">{{error_name_message}}</p>
+                <p class="error-message" id="errorUsernameMsg"></p>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">密码:</span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">密码:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" name="password">
                 </div>
-                <input type="text" class="form-control form-control-lg" v-model="password">
-            </div>
-            <p class="error-message" v-show="error_password">{{error_password_message}}</p>
-
-            <button type="button" class="btn btn-success register_button">登录</button>
+                <p class="error-message" id="errorPasswordMsg"></p>
+                <input type="submit" class="btn btn-success register_button" value="登录">
+            </form>
         </div>
     </div>
 </div>
