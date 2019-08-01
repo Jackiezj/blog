@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TomatoIndex</title>
+
+    <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="../../images/logo/favicon.ico">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/tomato.css">
+
+    <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
+    <script rel="script" src="../../lib/vue/vue.min.js"></script>
+    <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+<!--头部-->
+<div class="page-width header">
+    <div class="header-logo">
+        <a href="../blog/blogIndex.html"><img src="../../images/logo/logo.png"></a>
+    </div>
+    <div class="nav header-nav-link">
+        <a class="" href="../base/login.html">登录/注册</a>
+        <a class="border-bottom border-success" href="../blog/blogIndex.html">Blog</a>
+        <a class="" href="/tomatoIndex.html">Tomato</a>
+        <a class="" href="../books/booksIndex.html">Books</a>
+        <a class="" href="#">Tools</a>
+    </div>
+    <div class="header-search">
+        <form class="my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<hr>
+<!--中部-->
+<div class="page-width body" id="app">
+    <!--    工具-->
+    <div class=" body-tools">
+        <div class=" tools-style tomato-status">
+            <div class=" start-tomato">
+                <div class="start-tomato-div">
+                    <button id="startTomato" type="button" class="start-tomato-button btn btn-success" @click="startTomato">开启番茄</button>
+                    <audio controls id="start_music" hidden>
+                        <source src="../../media/2.ogg" type="audio/ogg">
+                    </audio>
+                </div>
+            </div>
+            <div class="start-tomato">
+                <div class="start-tomato-div">
+                    <button id="stopTomato" type="button" class="stop-tomato-button btn btn-success" @click="stopTomato">停止番茄</button>
+                    <audio id="stop_music" hidden>
+                        <source src="../../media/1.ogg" type="audio/ogg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class=" tools-style tomato-time">
+            <div class="tomato-tips">
+                <p id="tomato-tips">快点开始番茄吧,时间在于你如何使用</p>
+            </div>
+        </div>
+        <div class=" tools-style tomato-statistics">
+            <p>今日计划番茄数: <span class="tomato-count">20</span></p>
+            <p>今日完成番茄数: <span id="finish_tomato_num" class="tomato-count">0</span></p>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                     aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!--    内容-->
+    <div class=" body-tomato">
+        <div class=" tomato-style tomato-active">
+            <div class="tomato-active-title">
+                <p class="">活动清单</p>
+            </div>
+            <div class=" pre-scrollable tomato-active-list">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary"><div class="tomato_active_time">时间</div><div class="tomato_active_content">活动内容</div><div class="tomato_active_finish">是否完成</div></li>
+
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-danger"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">unachive active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-success"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">finish active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-success"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">finish active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+                    <li class="list-group-item list-group-item-success"><div class="tomato_active_time">2019-06-02</div><div class="tomato_active_content">finish active</div><div class="tomato_active_finish"><input type="checkbox"></div></li>
+            </div>
+            <div class=" tomato-active-new">
+                <div>
+                    <a href="#"><img src="../../images/icon_img/add.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="tomato-white-style"></div>
+        <div class=" tomato-style tomato-active">
+            <div class="tomato-active-title">
+                <p class="">今日待办</p>
+            </div>
+            <div class=" pre-scrollable tomato-active-list">
+                <ul class="list-group">
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                </ul>
+            </div>
+            <div class=" tomato-active-new">
+                <div>
+                    <a href="#"><img src="../../images/icon_img/add.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+        <div class="tomato-white-style"></div>
+        <div class=" tomato-style tomato-active">
+            <div class="tomato-active-title">
+                <p class="">总结反思</p>
+            </div>
+            <div class=" pre-scrollable tomato-active-list">
+                <ul class="list-group">
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+                    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+                    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+                    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+                    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+                    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+                    <li class="list-group-item list-group-item-light">A simple light list group item</li>
+                    <li class="list-group-item list-group-item-dark">A simple dark list group item</li>
+                </ul>
+            </div>
+            <div class=" tomato-active-new">
+                <div>
+                    <a href="#"><img src="../../images/icon_img/add.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<!--底部-->
+<div class="bottom page-width">
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">中国加油</p>
+        <hr><br>
+        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">传送门</p>
+        <hr><br>
+        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
+        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
+        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">成为铁杆粉</p>
+        <hr><br>
+        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
+    </div>
+</div>
+<script rel="script" src="../../js/tomato/tomatoIndex.js"></script>
+</body>
+</html>

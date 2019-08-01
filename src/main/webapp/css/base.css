@@ -1,0 +1,88 @@
+.border-tip {
+    border: 1px solid red;
+}
+
+.page-width {
+    width: 1200px;
+    margin: auto;
+}
+
+
+/*页面头部*/
+.header {
+    height: 80px;
+}
+
+.header-logo {
+    width: 10%;
+    height: 100%;
+    float: left;
+}
+
+.header-logo a img {
+    width: 100%;
+    height: 100%;
+}
+
+.header-nav-link {
+    width: 40%;
+    height: 100%;
+    float: left;
+    padding-right: 60px;
+}
+
+.header-nav-link a {
+    margin: auto;
+    text-decoration: none;
+    color: rgb(114, 114, 114);
+}
+
+.header-search {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.header-search form {
+    width: 100%;
+    height: 100%;
+}
+
+.header-search form input {
+    width: 75%;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.header-search form button {
+    width: 20%;
+    display: inline-block;
+    margin: auto;
+}
+
+
+/*页面底部*/
+.bottom {
+    height: 250px;
+}
+
+.bottom-div {
+    width: 32%;
+    float: left;
+    height: 100%;
+    margin-bottom: 40px;
+}
+
+.QRCode {
+    margin: 20px 130px;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.bottom-white {
+    width: 2%;
+    height: 100%;
+    float: left;
+}

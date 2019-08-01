@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlogIndex</title>
+
+    <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/register.css">
+
+    <link rel="shortcut icon" href="../../images/logo/favicon.ico">
+    <link rel="stylesheet" href="../../css/base.css">
+
+    <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
+    <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script rel="script" src="../../js/vue/vue-2.5.16.js"></script>
+    <script rel="script" src="../../js/vue/axios-0.18.0.min.js"></script>
+    <script rel="script" src="../../js/base/host.js"></script>
+
+
+</head>
+<body>
+<!--头部-->
+<!--<div class="page-width header">-->
+<!--    <div class="header-logo">-->
+<!--        <a href="#"><img src="../../images/logo/logo.png"></a>-->
+<!--    </div>-->
+<!--    <div class="nav header-nav-link">-->
+<!--        <a class="" href="#">登录/注册</a>-->
+<!--        <a class="border-bottom border-success" href="../blog/blogIndex.html">Blog</a>-->
+<!--        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>-->
+<!--        <a class="" href="../books/booksIndex.html">Books</a>-->
+<!--        <a class="" href="#">Tools</a>-->
+<!--    </div>-->
+<!--    <div class="header-search">-->
+<!--        <form class="my-2 my-lg-0">-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<hr>-->
+
+<!--中部-->
+<div class="page-width body">
+    <div class="register">
+        <div class="register_logo">
+            <a href="../blog/blogIndex.html"><img src="../../images/logo/logo.png" style="width: 300px;"></a>
+        </div>
+        <div class="register_line border-left border-success">
+
+        </div>
+        <div class="register_content" id="app">
+            <form>
+                <div class="user_register font-weight-bold">用户注册</div>
+                <div class="user_login"><a href="login.html" class="user_login_a">已有账号? 登录</a></div>
+                <div class="clear_float"></div>
+                <hr>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">用户名:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" v-model="username" @blur="check_username">
+                </div>
+                <p class="error-message" v-show="error_name">{{error_name_message}}</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">密码:</span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg" v-model="password" @blur="check_pwd">
+                </div>
+                <p class="error-message" v-show="error_password">{{error_password_message}}</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">确认密码:</span>
+                    </div>
+                    <input type="password" class="form-control form-control-lg" v-model="password2" @blur="check_cpwd">
+                </div>
+                <p class="error-message" v-show="error_check_password">{{error_check_password_message}}</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">手机号:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" v-model="mobile" @blur="check_phone">
+                </div>
+                <p class="error-message" v-show="error_phone">{{error_phone_message}}</p>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">短信验证码:</span>
+                    </div>
+                    <input type="text" class="form-control form-control-lg" v-model="sms_code" @blur="check_sms_code">
+                    <button type="button" class="btn get-sms-code">获取验证码</button>
+                </div>
+                <p class="error-message" v-show="error_sms_code">{{error_sms_code_message}}</p>
+
+                <!--            <div class="input-group mb-3">-->
+                <!--                <input type="checkbox" checked="checked"><label>请同意用户协议</label>-->
+                <!--            </div>-->
+                <button type="button" class="btn btn-success register_button">注册</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="clear_float"></div>
+<br><br><br><br><br>
+<hr>
+<!--底部-->
+<div class="bottom page-width">
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">中国加油</p>
+        <hr>
+        <br>
+        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">传送门</p>
+        <hr>
+        <br>
+        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
+        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
+        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">成为铁杆粉</p>
+        <hr>
+        <br>
+        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
+    </div>
+</div>
+</body>
+<script rel="script" src="../../js/base/register.js"></script>
+</html>

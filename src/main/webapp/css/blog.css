@@ -1,0 +1,41 @@
+.body {
+    height: 850px;
+}
+
+.body-left-c1 {
+    width: 5%;
+    height: 100%;
+    float: left;
+}
+
+.body-left-c1 button {
+    writing-mode: vertical-lr;
+    word-wrap: break-word;
+
+}
+
+.add-button {
+    width: 100%;
+}
+
+.body-left-c2 {
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+
+.body-white {
+    width: 2%;
+    height: 100%;
+    float: left;
+}
+
+.body-right {
+    width: 78%;
+    height: 100%;
+    float: left;
+}
+
+.assay_list {
+    max-height: 100%;
+}

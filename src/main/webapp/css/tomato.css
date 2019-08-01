@@ -1,0 +1,135 @@
+/*页面中部*/
+/*工具及提示栏*/
+.body-tools {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(79, 203, 79, 0.35);
+}
+
+.tools-style {
+    height: 100%;
+    float: left;
+}
+
+.tomato-status {
+    width: 20%;
+}
+
+.start-tomato {
+    height: 50%;
+    width: 100%;
+}
+
+.start-tomato-div {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}
+
+.start-tomato-button {
+    margin: 25px 60px 0;
+}
+
+.stop-tomato-button {
+    margin: 10px 60px 25px;
+}
+
+
+.tomato-time {
+    width: 60%;
+    padding: 30px 30px;
+}
+
+.tomato-tips p {
+    color: #49ae4e;
+    font-size: 30px;
+}
+
+.tomato-statistics {
+    width: 20%;
+    padding: 30px 30px;
+}
+
+.tomato-statistics p {
+    color: #49ae4e;
+}
+
+.tomato-count {
+    color: #007bff;
+}
+
+
+/*内容部分*/
+.body-tomato {
+    width: 100%;
+    height: 700px;
+}
+
+.tomato-style {
+    width: 32%;
+    height: 100%;
+    float: left;
+}
+
+.tomato-white-style {
+    width: 2%;
+    height: 100%;
+    float: left;
+}
+
+
+.tomato-active-title {
+    height: 7%;
+}
+
+.tomato-active-title p {
+    height: 100%;
+    color: #49ae4e;
+    text-align: center;
+    font-size: 25px;
+}
+
+.tomato-active-list {
+    height: 86%;
+    max-height: 86%;
+    width: 100%;
+}
+
+.tomato-active-list ul {
+    width: 100%;
+}
+.tomato-active-list ul li {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
+.tomato-active-list ul li div {
+    float: left;
+    text-align: center;
+}
+
+.tomato_active_time {
+    width: 30%;
+}
+
+.tomato_active_content {
+    width: 50%;
+}
+
+.tomato_active_finish {
+    width: 20%;
+}
+
+.tomato-active-new {
+    height: 7%;
+}
+
+.tomato-active-new div {
+    height: 60%;
+    width: 10%;
+    margin: 5px auto;
+}
+
+.tomato-active-new div a img {
+    height: 100%;
+}

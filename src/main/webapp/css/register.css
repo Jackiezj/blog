@@ -1,0 +1,77 @@
+.register {
+    width: 80%;
+    height: 100%;
+    margin: 7% auto;
+}
+
+.register_logo {
+    width: 45%;
+    float: left;
+}
+
+.register_line {
+    width: 0.5px;
+    height: 400px;
+    float: left;
+}
+
+.register_content {
+    margin-left: 9%;
+    width: 45%;
+    float: left;
+}
+
+.bottom {
+    margin-top: 100px;
+}
+
+.clear_float {
+    clear: both;
+}
+
+.user_register {
+    color: #a6a6a6;
+    font-size: 28px;
+    float: left;
+}
+
+.user_login {
+    color: #a6a6a6;
+    float: right;
+    padding-top: 20px;
+}
+
+.user_login a {
+    color: green;
+    text-decoration: none;
+}
+.error-message {
+    font-size: 15px;
+    color: red;
+    /*display: none;*/
+}
+
+.input-group-prepend {
+    width: 25%;
+}
+
+.input-group-text {
+    width: 100%;
+    color: #7e7e7e;
+}
+
+.tel-input {
+    width: 50%;
+}
+
+.get-sms-code {
+    color: #929292;
+    background-color: #e7eaed;
+    margin-left: 10px;
+}
+
+.register_button {
+    height: 50px;
+    margin-top: 20px;
+    width: 100%;
+}

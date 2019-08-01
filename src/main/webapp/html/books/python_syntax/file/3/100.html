@@ -1,0 +1,876 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    <!-- Start book Python课程讲义 -->
+    <head>
+        <!-- head:start -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>集合(扩展) | Python课程讲义</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="python">
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="../../gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-splitter/splitter.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="../../file/3/section.11.3.html" />
+    
+    
+    <link rel="prev" href="../../file/3/section.11.2.html" />
+    
+
+        <!-- head:end -->
+    </head>
+    <body>
+        <!-- body:start -->
+        
+    <div class="book"
+        data-level="3.15"
+        data-chapter-title="集合(扩展)"
+        data-filepath="file/3/100.md"
+        data-basepath="../.."
+        data-revision="Mon Nov 13 2017 12:11:01 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../../index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Python基础课件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="file/1/index.html">
+            
+                
+                    <a href="../../file/1/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Python基础知识
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="file/1/section.0.html">
+            
+                
+                    <a href="../../file/1/section.0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        计算机组成原理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="file/1/section.1.html">
+            
+                
+                    <a href="../../file/1/section.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        认识python\(了解\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="file/1/section.2.html">
+            
+                
+                    <a href="../../file/1/section.2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        第一个python程序
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="file/1/section.3.html">
+            
+                
+                    <a href="../../file/1/section.3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        注释
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="file/1/section.4.html">
+            
+                
+                    <a href="../../file/1/section.4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        变量以及类型
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="file/1/section.5.html">
+            
+                
+                    <a href="../../file/1/section.5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        标识符和关键字
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="file/1/section.6.html">
+            
+                
+                    <a href="../../file/1/section.6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        输出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="file/1/section.4.1.html">
+            
+                
+                    <a href="../../file/1/section.4.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        输入
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="file/1/section.7.html">
+            
+                
+                    <a href="../../file/1/section.7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="file/1/section.10.html">
+            
+                
+                    <a href="../../file/1/section.10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        数据类型转换
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="file/2/index.html">
+            
+                
+                    <a href="../../file/2/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        判断语句和循环语句
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="file/2/section.1.html">
+            
+                
+                    <a href="../../file/2/section.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        判断语句介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="file/2/section.2.html">
+            
+                
+                    <a href="../../file/2/section.2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        if语句
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="file/2/section.3.html">
+            
+                
+                    <a href="../../file/2/section.3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        比较、关系运算符
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="file/2/section.4.html">
+            
+                
+                    <a href="../../file/2/section.4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        if-else
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="file/2/section.4.1.html">
+            
+                
+                    <a href="../../file/2/section.4.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        elif
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="file/2/section.5.html">
+            
+                
+                    <a href="../../file/2/section.5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        if嵌套
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="file/2/section.6.html">
+            
+                
+                    <a href="../../file/2/section.6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        if应用:猜拳游戏
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="file/2/section.7.html">
+            
+                
+                    <a href="../../file/2/section.7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        循环语句介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="file/2/section.8.html">
+            
+                
+                    <a href="../../file/2/section.8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        while循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="file/2/section.8.1.html">
+            
+                
+                    <a href="../../file/2/section.8.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        while循环应用
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="file/2/section.9.html">
+            
+                
+                    <a href="../../file/2/section.9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                        while循环的嵌套以及应用\(难\)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="file/2/section.11.html">
+            
+                
+                    <a href="../../file/2/section.11.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                        for循环
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="file/2/section.10.html">
+            
+                
+                    <a href="../../file/2/section.10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                        break和continue
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="file/3/index.html">
+            
+                
+                    <a href="../../file/3/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        字符串、列表、元组、字典
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="file/3/section.1.html">
+            
+                
+                    <a href="../../file/3/section.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        字符串介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="file/3/section.2.html">
+            
+                
+                    <a href="../../file/3/section.2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        字符串输出
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="file/3/section.3.html">
+            
+                
+                    <a href="../../file/3/section.3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        字符串输入
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="file/3/section.4.html">
+            
+                
+                    <a href="../../file/3/section.4.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        下标和切片
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="file/3/section.4.2.html">
+            
+                
+                    <a href="../../file/3/section.4.2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        字符串常见操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="file/3/section.5.html">
+            
+                
+                    <a href="../../file/3/section.5.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        列表介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="file/3/section.6.html">
+            
+                
+                    <a href="../../file/3/section.6.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                        列表的循环遍历
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.8" data-path="file/3/section.7.html">
+            
+                
+                    <a href="../../file/3/section.7.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                        列表的常见操作
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.9" data-path="file/3/section.8.html">
+            
+                
+                    <a href="../../file/3/section.8.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.9.</b>
+                        
+                        列表的嵌套
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.10" data-path="file/3/section.9.html">
+            
+                
+                    <a href="../../file/3/section.9.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.10.</b>
+                        
+                        元组
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.11" data-path="file/3/section.10.html">
+            
+                
+                    <a href="../../file/3/section.10.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.11.</b>
+                        
+                        字典介绍
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.12" data-path="file/3/section.11.0.html">
+            
+                
+                    <a href="../../file/3/section.11.0.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.12.</b>
+                        
+                        字典的常见操作1
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.13" data-path="file/3/section.11.1.html">
+            
+                
+                    <a href="../../file/3/section.11.1.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.13.</b>
+                        
+                        字典的常见操作2
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.14" data-path="file/3/section.11.2.html">
+            
+                
+                    <a href="../../file/3/section.11.2.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.14.</b>
+                        
+                        字典的遍历
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.15" data-path="file/3/100.html">
+            
+                
+                    <a href="../../file/3/100.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.15.</b>
+                        
+                        集合(扩展)
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.16" data-path="file/3/section.11.3.html">
+            
+                
+                    <a href="../../file/3/section.11.3.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.16.</b>
+                        
+                        公共方法
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../" >Python课程讲义</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x96C6;&#x5408;&#x4ECB;&#x7ECD;">&#x96C6;&#x5408;&#x4ECB;&#x7ECD;</h1>
+<h6 id="&#x96C6;&#x5408;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x96C6;&#x5408;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5143;&#x7EC4;&#x6216;&#x8005;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53BB;&#x91CD;&#x3002;">&#x96C6;&#x5408;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#xFF0C;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x662F;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x96C6;&#x5408;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x5143;&#x7EC4;&#x6216;&#x8005;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x53BB;&#x91CD;&#x3002;</h6>
+<h2 id="&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7A7A;&#x96C6;&#x5408;">&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7A7A;&#x96C6;&#x5408;</h2>
+<pre><code>  set1 = set()
+  # &#x6CE8;&#x610F;&#x4EE5;&#x4E0B;&#x5199;&#x6CD5;&#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x5178;
+  set2 = {}
+</code></pre><h2 id="&#x6DFB;&#x52A0;&#x5143;&#x7D20;add&#xFF0C;update">&#x6DFB;&#x52A0;&#x5143;&#x7D20;(add&#xFF0C;update)</h2>
+<h3 id="add">add</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+<span class="hljs-comment">#&#x6DFB;&#x52A0;&#x5143;&#x7D20;</span>
+set1.add(<span class="hljs-number">8</span>)
+</code></pre>
+<h3 id="update">update</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+<span class="hljs-comment">#&#x662F;&#x628A;&#x8981;&#x4F20;&#x5165;&#x7684;&#x5143;&#x7D20;&#x62C6;&#x5206;&#xFF0C;&#x505A;&#x4E3A;&#x4E2A;&#x4F53;&#x4F20;&#x5165;&#x5230;&#x96C6;&#x5408;&#x4E2D;</span>
+set1.update(<span class="hljs-string">&quot;abcd&quot;</span>)
+</code></pre>
+<h2 id="&#x5220;&#x9664;&#x5143;&#x7D20;remove&#xFF0C;pop&#xFF0C;discard">&#x5220;&#x9664;&#x5143;&#x7D20;(remove&#xFF0C;pop&#xFF0C;discard)</h2>
+<h3 id="remove">remove</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;remove&#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20; &#x5982;&#x679C;&#x6709; &#x76F4;&#x63A5;&#x5220;&#x9664; &#x5982;&#x679C;&#x6CA1;&#x6709; &#x7A0B;&#x5E8F;&#x62A5;&#x9519;</span>
+set1.remove(<span class="hljs-number">22</span>)
+</code></pre>
+<h3 id="pop">pop</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;pop&#x5220;&#x9664;&#x662F;&#x968F;&#x673A;&#x5220;&#x9664;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x5143;&#x7D20; &#x5982;&#x679C;set1&#x6CA1;&#x6709;&#x5143;&#x7D20;&#x8BB2;&#x7A0B;&#x5E8F;&#x62A5;&#x9519;</span>
+set1.pop()
+</code></pre>
+<h3 id="discard">discard</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>}
+
+<span class="hljs-comment"># &#x4F7F;&#x7528;discard&#x5220;&#x9664; &#x5982;&#x679C;&#x5143;&#x7D20;&#x5B58;&#x5728; &#x76F4;&#x63A5;&#x5220;&#x9664; &#x5982;&#x679C;&#x5143;&#x7D20;&#x4E0D;&#x5B58;&#x5728; &#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;</span>
+set1.discard(<span class="hljs-number">2</span>)
+</code></pre>
+<h2 id="&#x4EA4;&#x96C6;&#x548C;&#x5E76;&#x96C6;---&#x548C;---">&#x4EA4;&#x96C6;&#x548C;&#x5E76;&#x96C6;( &amp;  &#x548C;  | )</h2>
+<h3 id="&#x4EA4;&#x96C6;">&#x4EA4;&#x96C6;</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+new_set = set1 &amp; set2
+print(new_set) 
+<span class="hljs-comment"># {3, 4}</span>
+</code></pre>
+<h3 id="&#x5E76;&#x96C6;">&#x5E76;&#x96C6;</h3>
+<pre><code class="lang-py">set1 = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>}
+set2 = {<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+new_set = set1 | set2
+print(new_set)
+<span class="hljs-comment"># {1, 2, 3, 4, 5, 6}</span>
+</code></pre>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../../file/3/section.11.2.html" class="navigation navigation-prev " aria-label="Previous page: 字典的遍历"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../../file/3/section.11.3.html" class="navigation navigation-next " aria-label="Next page: 公共方法"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../../gitbook/app.js"></script>
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-splitter/splitter.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-toggle-chapters/toggle.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"disqus":{"shortName":"gitbookuse"},"github":{"url":"https://github.com/dododream"},"search-pro":{"cutWordLib":"nodejieba","defineWord":["gitbook-use"]},"sharing":{"weibo":true,"facebook":true,"twitter":true,"google":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/dododream/edit","label":"Edit This Page"},"splitter":{},"toggle-chapters":{},"highlight":{},"search":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <!-- body:end -->
+    </body>
+    <!-- End of book Python课程讲义 -->
+</html>

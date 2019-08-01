@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BlogIndex</title>
+
+    <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="../../images/logo/favicon.ico">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+
+    <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
+    <script rel="script" src="../../js/vue/vue-2.5.16.js"></script>
+    <script rel="script" src="../../js/vue/axios-0.18.0.min.js"></script>
+    <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+<div id="app">
+<!--头部-->
+<div class="page-width header">
+    <div class="header-logo">
+        <a href="/blogIndex.html"><img src="../../images/logo/logo.png"></a>
+    </div>
+    <div class="nav header-nav-link">
+        <a class="" href="../base/login.html">登录/注册</a>
+        <a class="border-bottom border-success" href="/blogIndex.html">Blog</a>
+        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>
+        <a class="" href="../books/booksIndex.html">Books</a>
+        <a class="" href="#">Tools</a>
+    </div>
+    <div class="header-search">
+        <form class="my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<hr>
+<!--中部-->
+<div class=" page-width body">
+    <!--    <div class="border-tip body-left-c1 ">-->
+    <div class=" body-left-c1 btn-group-vertical" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary bg-success ">IT 前端</button>
+        <button type="button" class="btn btn-secondary bg-success text-white border-right">IT 后端</button>
+        <button type="button" class="btn btn-secondary bg-success text-white">阅读</button>
+        <button type="button" class="btn btn-secondary bg-success text-white">情感</button>
+        <button type="button" class="btn btn-secondary bg-success"><img src="../../images/icon_img/plus-2x.png"></button>
+    </div>
+    <!--    </div>-->
+    <div class=" body-left-c2 btn-group-vertical" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-secondary">New</button>
+        <button type="button" class="btn btn-secondary">数据库</button>
+        <button type="button" class="btn btn-secondary">算法</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary">pythonWeb后端</button>
+        <button type="button" class="btn btn-secondary">机器学习</button>
+        <button type="button" class="btn btn-secondary">网络爬虫</button>
+        <button type="button" class="btn btn-secondary">人工智能</button>
+        <button type="button" class="btn btn-secondary">操作系统</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary">前端</button>
+        <button type="button" class="btn btn-secondary"><img src="../../images/icon_img/plus-2x.png"></button>
+    </div>
+    <div class="body-white"></div>
+    <div class=" body-right">
+        <!--    右侧文章列表区-->
+        <div class="assay_list border_tip pre-scrollable">
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+            <!--        一本书-->
+            <div class="media shadow-sm p-3 bg-white rounded">
+                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">标题</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus
+                    odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate
+                    fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
+<hr>
+<!--底部-->
+<div class="bottom page-width">
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">中国加油</p>
+        <hr>
+        <br>
+        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
+        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">传送门</p>
+        <hr>
+        <br>
+        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
+        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
+        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
+    </div>
+    <div class="bottom-white"></div>
+    <div class=" bottom-div">
+        <p class="text-center text-secondary">成为铁杆粉</p>
+        <hr>
+        <br>
+        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
+    </div>
+</div>
+
+<script rel="script" src="../../js/utils/common.js"></script>
+<script rel="script" src="../../js/blog/blog_index.js"></script>
+</div>
+</body>
+</html>
