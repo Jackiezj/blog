@@ -15,29 +15,14 @@
     <script rel="script" src="../../js/vue/axios-0.18.0.min.js"></script>
     <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script type="text/javascript" src="../../js/base/include.js"></script>
+
 
 </head>
 <body>
 <div id="app">
 <!--头部-->
-<div class="page-width header">
-    <div class="header-logo">
-        <a href="/blogIndex.html"><img src="../../images/logo/logo.png"></a>
-    </div>
-    <div class="nav header-nav-link">
-        <a class="" href="../base/login.html">登录/注册</a>
-        <a class="border-bottom border-success" href="/blogIndex.html">Blog</a>
-        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>
-        <a class="" href="../books/booksIndex.html">Books</a>
-        <a class="" href="#">Tools</a>
-    </div>
-    <div class="header-search">
-        <form class="my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</div>
+<div class="page-width header" id="header"></div>
 <hr>
 <!--中部-->
 <div class=" page-width body">
@@ -168,35 +153,10 @@
 </div>
 <hr>
 <!--底部-->
-<div class="bottom page-width">
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">中国加油</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">传送门</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
-        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
-        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">成为铁杆粉</p>
-        <hr>
-        <br>
-        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
-    </div>
-</div>
+<div class="bottom page-width" id="footer"></div>
 
-<script rel="script" src="../../js/utils/common.js"></script>
-<script rel="script" src="../../js/blog/blog_index.js"></script>
+<!--<script rel="script" src="../../js/utils/common.js"></script>-->
+<!--<script rel="script" src="../../js/blog/blog_index.js"></script>-->
 </div>
 </body>
 </html>
