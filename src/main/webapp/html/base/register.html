@@ -15,7 +15,7 @@
     <script rel="script" src="../../js/base/host.js"></script>
 
     <script src="/js/base/include.js"></script>
-
+    <script src="/js/base/register.js"></script>
 
 </head>
 <body>
@@ -41,37 +41,37 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">用户名:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg">
+                    <input type="text" class="form-control form-control-lg" id="username" placeholder="请输入4-20位用户名">
                 </div>
-                <p class="error-message"><p>
+                <p class="error-message" id="usernameArrorMsg"><p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">密码:</span>
                     </div>
-                    <input type="password" class="form-control form-control-lg">
+                    <input type="password" class="form-control form-control-lg" id="password" placeholder="请输入6-20位密码">
                 </div>
-                <p class="error-message"></p>
+                <p class="error-message" id="passwordArrorMsg"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">确认密码:</span>
                     </div>
-                    <input type="password" class="form-control form-control-lg">
+                    <input type="password" class="form-control form-control-lg" id="password2">
                 </div>
-                <p class="error-message"></p>
+                <p class="error-message" id="passwordArrorMsg2"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">手机号:</span>
+                        <span class="input-group-text">邮箱:</span>
                     </div>
-                    <input type="text" class="form-control form-control-lg">
+                    <input type="text" class="form-control form-control-lg" id="email">
                 </div>
-                <p class="error-message"></p>
+                <p class="error-message" id="emailArrorMsg"></p>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">短信验证码:</span>
+                        <span class="input-group-text">邮箱验证码:</span>
                     </div>
                     <input type="text" class="form-control form-control-lg">
                     <button type="button" class="btn get-sms-code">获取验证码</button>
