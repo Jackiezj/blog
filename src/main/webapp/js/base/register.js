@@ -9,7 +9,7 @@ $(function () {
 
                 if (data.flag) {
                     //注册成功，跳转成功页面
-                    location.href = "index.html";
+                    location.href = "/index.html";
                 } else {
                     //注册失败,给errorMsg添加提示信息
                     $("#errorMsg").html(data.errorMsg);

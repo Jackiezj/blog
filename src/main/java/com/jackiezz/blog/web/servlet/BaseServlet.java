@@ -45,10 +45,14 @@ public class BaseServlet extends HttpServlet {
      * @param response
      * @throws IOException
      */
-    public void writeValue (Object obj, HttpServletResponse response) throws IOException {
+    public void writeValue (Object obj, HttpServletResponse response) {
         ObjectMapper mapper = new ObjectMapper();
         response.setContentType("application/json;charset=utf-8");
-        mapper.writeValue(response.getOutputStream(), obj);
+        try {
+            mapper.writeValue(response.getOutputStream(), obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -56,7 +60,7 @@ public class BaseServlet extends HttpServlet {
      * @param obj
      * @return
      */
-    public String wrietValueAsString (Object obj) throws JsonProcessingException {
+    public String writeValueAsString (Object obj) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(obj);
     }
