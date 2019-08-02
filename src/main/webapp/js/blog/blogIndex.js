@@ -27,9 +27,10 @@ function findAllCategory(fid) {
     $.get("/category/findAll", {"fid": fid}, function (data) {
         var btns = '<button type="button" class="btn btn-secondary">New</button>';
         for (var i = 0; i < data.length; i++) {
-            var btn = '<button type="button" class="btn btn-secondary" cid="' + data[i].cid + '">data[i].cname</button>';
+            var btn = '<button type="button" class="btn btn-secondary" cid=c"' + data[i].id + '">'+data[i].cname+'</button>';
+            btns += btn;
         }
-        btns += btn;
+        btns += '<button type="button" class="btn btn-secondary"><img src="../../images/icon_img/plus-2x.png"></button>';
         $("#categoryList").html(btns);
     })
 
