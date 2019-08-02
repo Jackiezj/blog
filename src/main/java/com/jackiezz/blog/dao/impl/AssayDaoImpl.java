@@ -13,8 +13,20 @@ public class AssayDaoImpl implements AssayDao {
     private JdbcTemplate template = new JdbcTemplate(JdbcUtils.getDataSource());
 
     @Override
+    public List<Assay> findAllAssayList(int uid) {
+        String sql = "select * from assay where uid = ? order by updateTime desc";
+        List<Assay> assayList = null;
+        try {
+            assayList = template.query(sql, new BeanPropertyRowMapper<Assay>(Assay.class), uid);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return assayList;
+    }
+
+    @Override
     public List<Assay> findAssayListByCategory(int cid) {
-        String sql = "select * from assay where cid = ?";
+        String sql = "select * from assay where cid = ? order by updateTime desc";
         List<Assay> assayList = null;
         try {
              assayList = template.query(sql, new BeanPropertyRowMapper<Assay>(Assay.class), cid);

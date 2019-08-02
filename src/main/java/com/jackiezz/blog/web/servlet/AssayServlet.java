@@ -27,6 +27,18 @@ public class AssayServlet extends BaseServlet {
      * @param request
      * @param response
      */
+
+    public void findAllAssayListByUser(HttpServletRequest request, HttpServletResponse response) {
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null) {
+            writeValue("", response);
+        } else {
+            List<Assay> assayList = assayService.findAllAssayList(user.getId());
+            writeValue(assayList, response);
+        }
+    }
+
+
     public void findAssayListByCategory(HttpServletRequest request, HttpServletResponse response) {
         // 获取参数category
         int cid = Integer.parseInt(request.getParameter("cid"));

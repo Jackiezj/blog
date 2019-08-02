@@ -21,35 +21,24 @@ $(function () {
     });
 
     // 页面加载时加载文章列表
-    $.get("/assay/findAssayListFirstVisit", {}, function (data) {
-        var assayList = "";
-        for (var i = 0; i < data.length; i++) {
-            var assay =
-                '            <br>\n' +
-                '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
-                '                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">\n' +
-                '                <div class="media-body">\n' +
-                '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
-                '                    <p>'+data[i].digest+'</p>\n' +
-                '                </div>\n' +
-                '            </div>';
-            assayList += assay;
-        }
-        $("#assayList").html(assayList);
-    })
+    findAllAssayListByUser();
     // 点击category时,加载文章列表
     $(document).on("click", ".cbtn", function() {
         var cbtnId = $(this).attr("id");
         cbtnId = cbtnId.substring(1);
         findAllAssayByCategory(cbtnId);
     })
+    // 点击最新分类, 加载最新更新数据
+    $(document).on("click", "#lasterCategoryBtn", function() {
+        findAllAssayListByUser();
+    });
 
 });
 
 function findAllCategory(fid) {
     // 根据fid查询所有的category
     $.get("/category/findAll", {"fid": fid}, function (data) {
-        var btns = '<button type="button" class="btn btn-secondary">New</button>';
+        var btns = '<button type="button" class="btn btn-secondary" id="lasterCategoryBtn">New</button>';
         for (var i = 0; i < data.length; i++) {
             var btn = '<button type="button" class="btn btn-secondary cbtn" id="c' + data[i].id + '">'+data[i].cname+'</button>';
             btns += btn;
@@ -65,17 +54,41 @@ function findAllAssayByCategory(cid) {
         var assayList = "";
         for (var i = 0; i < data.length; i++) {
             var assay =
+                '<a href="/html/blog/blogDetail.html">' +
                 '            <br>\n' +
                 '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
-                '                <img class="mr-3" src="../../images/icon_img/image-6x.png" alt="Generic placeholder image">\n' +
+                '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
                 '                <div class="media-body">\n' +
                 '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
                 '                    <p>'+data[i].digest+'</p>\n' +
                 '                </div>\n' +
-                '            </div>';
+                '            </div>' +
+                '</a>';
+
             assayList += assay;
         }
         $("#assayList").html(assayList);
     })
 
+}
+
+function findAllAssayListByUser() {
+    $.get("/assay/findAllAssayListByUser", {}, function (data) {
+        var assayList = "";
+        for (var i = 0; i < data.length; i++) {
+            var assay =
+                '<a href="/html/blog/blogDetail.html">' +
+                '            <br>\n' +
+                '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
+                '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
+                '                <div class="media-body">\n' +
+                '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
+                '                    <p>'+data[i].digest+'</p>\n' +
+                '                </div>\n' +
+                '            </div>' +
+                '</a>';
+            assayList += assay;
+        }
+        $("#assayList").html(assayList);
+    });
 }

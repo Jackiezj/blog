@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface AssayService {
     List<Assay> findAssayListByCategory(int category);
+
+    List<Assay> findAllAssayList(int id);
 }
