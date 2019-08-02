@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface FieldDao {
     List<Field> findAll(String uid);
+
+    Field findFirst(int id);
 }

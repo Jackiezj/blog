@@ -14,4 +14,9 @@ public class FieldServiceImpl implements FieldService {
     public List<Field> findAll(String uid) {
         return dao.findAll(uid);
     }
+
+    @Override
+    public Field findFirst(int id) {
+        return dao.findFirst(id);
+    }
 }

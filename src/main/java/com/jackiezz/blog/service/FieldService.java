@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface FieldService {
     List<Field> findAll(String uid);
+
+    Field findFirst(int id);
 }
