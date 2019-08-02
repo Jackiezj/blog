@@ -36,8 +36,15 @@ public class AssayServlet extends BaseServlet {
 
     public void findAssayListFirstVisit(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
-        Field field = fieldService.findFirst(user.getId());
+        Field field = null;
+        if (user == null) {
+            field = fieldService.findFirst(6);
+        } else {
+            field = fieldService.findFirst(user.getId());
+        }
         Category category = categoryService.findFirst(field.getId());
+        List<Assay> assayList = assayService.findAssayListByCategory(category.getId());
+        writeValue(assayList, response);
     }
 
 }
