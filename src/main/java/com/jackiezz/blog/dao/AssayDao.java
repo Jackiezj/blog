@@ -12,4 +12,6 @@ public interface AssayDao {
     Assay findByAid(String aid);
 
     void update(Assay assay);
+
+    void addAssay(Assay assay);
 }

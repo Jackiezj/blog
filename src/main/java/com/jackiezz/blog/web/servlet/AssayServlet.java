@@ -30,6 +30,27 @@ public class AssayServlet extends BaseServlet {
     private AssayService assayService = new AssayServiceImpl();
 
     /**
+     * 添加文章到数据库
+     * @param request
+     * @param response
+     */
+    public void addAssay(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        Assay assay = new Assay();
+        assay.setAname(parameterMap.get("aname")[0]);
+        assay.setDigest(parameterMap.get("digest")[0]);
+        assay.setContent(parameterMap.get("content")[0]);
+        assay.setCid(Integer.parseInt(parameterMap.get("cid")[0]));
+        assay.setUid(Integer.parseInt(parameterMap.get("uid")[0]));
+        Date date = new Date();
+        assay.setCreateTime(new Date(date.getTime()));
+        assay.setUpdateTime(new Date(date.getTime()));
+        assay.setLogo(parameterMap.get("logo")[0]);
+
+        assayService.addAssay(assay);
+    }
+
+    /**
      * 文章修改时自动保存
      * @param request
      * @param response
@@ -42,10 +63,10 @@ public class AssayServlet extends BaseServlet {
         assay.setDigest(parameterMap.get("digest")[0]);
         assay.setContent(parameterMap.get("content")[0]);
         assay.setCid(Integer.parseInt(parameterMap.get("cid")[0]));
-        assay.setCid(Integer.parseInt(parameterMap.get("uid")[0]));
+        assay.setUid(Integer.parseInt(parameterMap.get("uid")[0]));
         Date date = new Date();
         assay.setCreateTime(new Date(Long.valueOf(parameterMap.get("createTime")[0])));
-        assay.setCreateTime(new Date(Long.valueOf(parameterMap.get("updateTime")[0])));
+        assay.setUpdateTime(new Date(Long.valueOf(parameterMap.get("updateTime")[0])));
         assay.setLogo(parameterMap.get("logo")[0]);
 
         assayService.update(assay);

@@ -41,6 +41,19 @@ $(function () {
         location.href="/html/blog/blogDetail.html?aid="+abtnId;
     })
 
+    // 点击新增文章, 添加文章
+    var uid;
+    $(document).on("click", "#addAssay", function () {
+        $.get("/user/getLoginUser", {}, function (data) {
+            if (data == "" || data == undefined) {
+                alert("请先登录")
+            } else {
+                uid = data.id;
+                location.href="/html/blog/blogAdd.html?uid="+uid;
+            }
+        });
+    });
+
 });
 
 function findAllCategory(fid) {
@@ -52,6 +65,7 @@ function findAllCategory(fid) {
             btns += btn;
         }
         btns += '<button type="button" class="btn btn-secondary"><img src="../../images/icon_img/plus-2x.png"></button>';
+        btns += '<button type="button" class="btn btn-secondary" id="addAssay">新增文章</button>';
         $("#categoryList").html(btns);
     })
 

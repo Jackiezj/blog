@@ -60,4 +60,13 @@ public class AssayDaoImpl implements AssayDao {
         }
     }
 
+    @Override
+    public void addAssay(Assay assay) {
+        String sql = "insert into assay (aname, digest, content, cid, uid, createTime, updateTime, logo) values(?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            template.update(sql, assay.getAname(), assay.getDigest(), assay.getContent(), assay.getCid(), assay.getUid(), assay.getCreateTime(), assay.getUpdateTime(), assay.getLogo());
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }

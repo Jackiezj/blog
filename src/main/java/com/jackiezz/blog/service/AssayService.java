@@ -12,4 +12,6 @@ public interface AssayService {
     Assay assayDetail(String aid);
 
     void update(Assay assay);
+
+    void addAssay(Assay assay);
 }

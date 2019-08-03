@@ -35,4 +35,9 @@ public class AssayServiceImpl implements AssayService {
     public void update(Assay assay) {
         assayDao.update(assay);
     }
+
+    @Override
+    public void addAssay(Assay assay) {
+        assayDao.addAssay(assay);
+    }
 }
