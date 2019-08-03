@@ -8,4 +8,6 @@ public interface AssayDao {
     List<Assay> findAllAssayList(int uid);
 
     List<Assay> findAssayListByCategory(int category);
+
+    Assay findByAid(String aid);
 }

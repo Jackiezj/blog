@@ -1,7 +1,12 @@
 $(function () {
+    //根据URL中aid获取数据库中数据
+    let url = window.location.href;
+    let indexNum = url.indexOf("?");
+    aid = window.location.href.substring(indexNum+5);
     // 展示文章
     var testEditormdView;
-    $.get("test.md", function (markdown) {
+    $.get("/assay/assayDetail", {"aid": aid}, function (data) {
+        let markdown = data.content;
         testEditormdView = editormd.markdownToHTML("test-editormd-view", {
             markdown: markdown,//+ "\r\n" + $("#append-test").text(),
             //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启

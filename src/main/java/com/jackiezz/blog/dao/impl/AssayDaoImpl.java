@@ -35,4 +35,16 @@ public class AssayDaoImpl implements AssayDao {
         }
         return assayList;
     }
+
+    @Override
+    public Assay findByAid(String aid) {
+        String sql = "select * from assay where id = ?";
+        Assay assay = null;
+        try {
+            assay = template.query(sql, new BeanPropertyRowMapper<Assay>(Assay.class), aid).get(0);
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+        return assay;
+    }
 }

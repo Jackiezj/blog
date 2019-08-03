@@ -8,4 +8,6 @@ public interface AssayService {
     List<Assay> findAssayListByCategory(int category);
 
     List<Assay> findAllAssayList(int id);
+
+    Assay assayDetail(String aid);
 }

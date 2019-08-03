@@ -25,4 +25,9 @@ public class AssayServiceImpl implements AssayService {
     public List<Assay> findAllAssayList(int uid) {
         return assayDao.findAllAssayList(uid);
     }
+
+    @Override
+    public Assay assayDetail(String aid) {
+        return assayDao.findByAid(aid);
+    }
 }

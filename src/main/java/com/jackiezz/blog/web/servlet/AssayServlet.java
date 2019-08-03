@@ -23,11 +23,21 @@ public class AssayServlet extends BaseServlet {
     private AssayService assayService = new AssayServiceImpl();
 
     /**
+     * 获取某个文章
+     * @param request
+     * @param response
+     */
+    public void assayDetail(HttpServletRequest request, HttpServletResponse response) {
+        String aid = request.getParameter("aid");
+        Assay assay = assayService.assayDetail(aid);
+        writeValue(assay, response);
+    }
+
+    /**
      * 根据request中传入的参数category查询对应的assayList
      * @param request
      * @param response
      */
-
     public void findAllAssayListByUser(HttpServletRequest request, HttpServletResponse response) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
