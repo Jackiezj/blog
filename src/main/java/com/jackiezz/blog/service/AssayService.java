@@ -10,4 +10,6 @@ public interface AssayService {
     List<Assay> findAllAssayList(int id);
 
     Assay assayDetail(String aid);
+
+    void update(Assay assay);
 }

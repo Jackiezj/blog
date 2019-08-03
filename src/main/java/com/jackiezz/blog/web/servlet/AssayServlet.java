@@ -1,5 +1,6 @@
 package com.jackiezz.blog.web.servlet;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jackiezz.blog.domain.Assay;
 import com.jackiezz.blog.domain.Category;
 import com.jackiezz.blog.domain.Field;
@@ -10,17 +11,45 @@ import com.jackiezz.blog.service.FieldService;
 import com.jackiezz.blog.service.impl.AssayServiceImpl;
 import com.jackiezz.blog.service.impl.CategoryServiceImpl;
 import com.jackiezz.blog.service.impl.FieldServiceImpl;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/assay/*")
 public class AssayServlet extends BaseServlet {
     private FieldService fieldService = new FieldServiceImpl();
     private CategoryService categoryService = new CategoryServiceImpl();
     private AssayService assayService = new AssayServiceImpl();
+
+    /**
+     * 文章修改时自动保存
+     * @param request
+     * @param response
+     */
+    public void assaySave(HttpServletRequest request, HttpServletResponse response) throws InvocationTargetException, IllegalAccessException {
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        Assay assay = new Assay();
+        assay.setId(Integer.parseInt(parameterMap.get("id")[0]));
+        assay.setAname(parameterMap.get("aname")[0]);
+        assay.setDigest(parameterMap.get("digest")[0]);
+        assay.setContent(parameterMap.get("content")[0]);
+        assay.setCid(Integer.parseInt(parameterMap.get("cid")[0]));
+        assay.setCid(Integer.parseInt(parameterMap.get("uid")[0]));
+        Date date = new Date();
+        assay.setCreateTime(new Date(Long.valueOf(parameterMap.get("createTime")[0])));
+        assay.setCreateTime(new Date(Long.valueOf(parameterMap.get("updateTime")[0])));
+        assay.setLogo(parameterMap.get("logo")[0]);
+
+        assayService.update(assay);
+    }
 
     /**
      * 获取某个文章

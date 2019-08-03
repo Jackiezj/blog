@@ -2,19 +2,26 @@ $(function () {
     // 点击编辑按钮编辑该文章
     let url = window.location.href;
     let indexNum = url.indexOf("?");
-    aid = window.location.href.substring(indexNum+5);
+    aid = window.location.href.substring(indexNum + 5);
     $("#edit-assay").click(function () {
-        location.href="/html/blog/blogEdit.html?aid="+aid;
+        location.href = "/html/blog/blogEdit.html?aid=" + aid;
     });
 
     //根据URL中aid获取数据库中数据, 展示文章
     var testEditormdView;
+    var assayData;  // assay的所有信息
     $.get("/assay/assayDetail", {"aid": aid}, function (data) {
-        $("#assayTitle").html(data.aname);
+        assayData = data;
+        $("#aname").attr("value", data.aname);
+        $("#digest").attr("value", data.digest);
         let markdown = data.content;
-        testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+        testEditormdView = editormd("test-editormd-view", {
+            width   : "100%",
+            height  : 1270,
+            syncScrolling : "single",
+            path    : "/lib/editor/lib/",
+
             markdown: markdown,//+ "\r\n" + $("#append-test").text(),
-            //htmlDecode      : true,       // 开启 HTML 标签解析，为了安全性，默认不开启
             htmlDecode: "style,script,iframe",  // you can filter tags decode
             toc: true,
             tocm: true,    // Using [TOCM]
@@ -24,8 +31,8 @@ $(function () {
             flowChart: true,  // 默认不解析
             sequenceDiagram: true,  // 默认不解析
             theme: (localStorage.theme) ? localStorage.theme : "dark",
-            tocContainer : "#custom-toc-container",
-            tocDropdown   : false
+            tocContainer: "#custom-toc-container",
+            tocDropdown: false
         });
     });
 
@@ -47,4 +54,21 @@ $(function () {
             times = 0;
         }
     });
+
+    // 对Assay所有信息"assayData"修改后定时保存
+    let date = new Date();
+    let saveInterval = setInterval(function () {
+        assayData.updateTime = date.getTime();
+        assayData.aname = $("#aname").val();
+        assayData.digest = $("#digest").val();
+        assayData.content = $("#content").val();
+
+        $.post("/assay/assaySave", assayData, function () {
+        })
+    }, 3000);
+
+    // edit页面关闭后取消定时保存
+    window.onunload = function (event) {
+        saveInterval.clearInterval();
+    }
 });

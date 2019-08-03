@@ -2,7 +2,7 @@
 <html lang="cn">
 <head>
     <meta charset="UTF-8">
-    <title>BlogIndex</title>
+    <title>BlogEdit</title>
 
     <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" href="../../images/logo/favicon.ico">
@@ -13,6 +13,7 @@
 
     <!--自定义CSS-->
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/blog.css">
     <link rel="stylesheet" href="../../css/blogDetail.css">
 
     <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
@@ -28,7 +29,7 @@
 
     <!--自定义JS-->
     <script src="/js/base/include.js"></script>
-    <script rel="script" src="../../js/blog/blogDetail.js"></script>
+    <script rel="script" src="../../js/blog/blogEdit.js"></script>
 
 
 </head>
@@ -40,21 +41,18 @@
 <div class="page-width body">
     <div id="layout">
         <button id="show-table" type="button" class="btn btn-secondary bg-success"><p>打开目录</p></button>
-        <button id="edit-assay" type="button" class="btn btn-secondary bg-success"><p>编辑文章</p></button>
         <div id="sidebar">
             <div class="markdown-body editormd-preview-container" id="custom-toc-container">#custom-toc-container</div>
         </div>
         <!--editor-->
-        <h1 id="assayTitle" style="text-align: center"></h1>
+        <input id="aname" type="text" class="form-control" aria-describedby="sizing-addon2">
+        <input id="digest" type="text" class="form-control" aria-describedby="sizing-addon2">
         <div id="test-editormd-view" class="pre-scrollable assayEditor">
-            <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+            <textarea id="content" style="display:none;" name="test-editormd-markdown-doc"></textarea>
         </div>
     </div>
 </div>
 
 </body>
-<hr>
-<!--底部-->
-<!--<div class="bottom page-width" id="footer"></div>-->
 </body>
 </html>

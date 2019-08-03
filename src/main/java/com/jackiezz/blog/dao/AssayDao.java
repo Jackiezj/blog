@@ -10,4 +10,6 @@ public interface AssayDao {
     List<Assay> findAssayListByCategory(int category);
 
     Assay findByAid(String aid);
+
+    void update(Assay assay);
 }

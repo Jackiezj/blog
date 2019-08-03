@@ -30,4 +30,9 @@ public class AssayServiceImpl implements AssayService {
     public Assay assayDetail(String aid) {
         return assayDao.findByAid(aid);
     }
+
+    @Override
+    public void update(Assay assay) {
+        assayDao.update(assay);
+    }
 }
