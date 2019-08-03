@@ -33,6 +33,12 @@ $(function () {
         findAllAssayListByUser();
     });
 
+    // 点击文章列表某个文章, 打开详情页面
+    $(document).on("click", ".assaya", function () {
+        // 跳转对应页面并回显数据
+        location.href="/";
+    })
+
 });
 
 function findAllCategory(fid) {
@@ -51,44 +57,31 @@ function findAllCategory(fid) {
 
 function findAllAssayByCategory(cid) {
     $.get("/assay/findAssayListByCategory", {"cid": cid}, function (data) {
-        var assayList = "";
-        for (var i = 0; i < data.length; i++) {
-            var assay =
-                '<a href="/html/blog/blogDetail.html">' +
-                '            <br>\n' +
-                '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
-                '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
-                '                <div class="media-body">\n' +
-                '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
-                '                    <p>'+data[i].digest+'</p>\n' +
-                '                </div>\n' +
-                '            </div>' +
-                '</a>';
-
-            assayList += assay;
-        }
-        $("#assayList").html(assayList);
+        assayListHtml(data);
     })
-
 }
 
 function findAllAssayListByUser() {
     $.get("/assay/findAllAssayListByUser", {}, function (data) {
-        var assayList = "";
-        for (var i = 0; i < data.length; i++) {
-            var assay =
-                '<a href="/html/blog/blogDetail.html">' +
-                '            <br>\n' +
-                '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
-                '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
-                '                <div class="media-body">\n' +
-                '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
-                '                    <p>'+data[i].digest+'</p>\n' +
-                '                </div>\n' +
-                '            </div>' +
-                '</a>';
-            assayList += assay;
-        }
-        $("#assayList").html(assayList);
+        assayListHtml(data);
     });
+}
+
+function assayListHtml(data) {
+    var assayList = "";
+    for (var i = 0; i < data.length; i++) {
+        var assay =
+            '<a class="assaya" href="javascript:void(0)" style="text-decoration: none; color: #000;" id=a"'+data[i].id+'">' +
+            '            <br>\n' +
+            '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
+            '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
+            '                <div class="media-body">\n' +
+            '                    <h5 class="mt-0">'+data[i].aname+'</h5>\n' +
+            '                    <p>'+data[i].digest+'</p>\n' +
+            '                </div>\n' +
+            '            </div>' +
+            '</a>';
+        assayList += assay;
+    }
+    $("#assayList").html(assayList);
 }
