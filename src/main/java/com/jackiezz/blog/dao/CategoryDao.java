@@ -8,4 +8,6 @@ public interface CategoryDao {
     List<Category> findAll(String fid);
 
     Category findFirst(int id);
+
+    void addCategory(Category category);
 }

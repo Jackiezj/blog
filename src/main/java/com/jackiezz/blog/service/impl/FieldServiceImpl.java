@@ -19,4 +19,9 @@ public class FieldServiceImpl implements FieldService {
     public Field findFirst(int id) {
         return dao.findFirst(id);
     }
+
+    @Override
+    public void addField(Field field) {
+        dao.addField(field);
+    }
 }

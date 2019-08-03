@@ -28,4 +28,14 @@ public class CategoryDaoImpl implements CategoryDao {
         }
         return category.get(0);
     }
+
+    @Override
+    public void addCategory(Category category) {
+        String sql = "insert into category(fid, cname) values(?, ?)";
+        try {
+            template.update(sql, category.getFid(), category.getCname());
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }

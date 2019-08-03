@@ -8,6 +8,7 @@ import com.jackiezz.blog.service.FieldService;
 import com.jackiezz.blog.service.impl.CategoryServiceImpl;
 import com.jackiezz.blog.service.impl.FieldServiceImpl;
 import com.sun.xml.internal.rngom.parse.host.Base;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/category/*")
 public class CategoryServlet extends BaseServlet {
@@ -36,6 +39,24 @@ public class CategoryServlet extends BaseServlet {
         }
         List<Category> categoryList = service.findAll(fid);
         writeValue(categoryList, response);
+    }
+
+    /**
+     * 新增分类
+     * @param request
+     * @param response
+     */
+    public void addCategory(HttpServletRequest request, HttpServletResponse response) {
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        Category category = new Category();
+        try {
+            BeanUtils.populate(category, parameterMap);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        service.addCategory(category);
     }
 
 }

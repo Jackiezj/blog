@@ -8,4 +8,6 @@ public interface FieldDao {
     List<Field> findAll(String uid);
 
     Field findFirst(int id);
+
+    void addField(Field field);
 }

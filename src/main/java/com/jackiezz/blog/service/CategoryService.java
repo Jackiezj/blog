@@ -9,4 +9,6 @@ public interface CategoryService {
     List<Category> findAll(String fid);
 
     Category findFirst(int id);
+
+    void addCategory(Category category);
 }

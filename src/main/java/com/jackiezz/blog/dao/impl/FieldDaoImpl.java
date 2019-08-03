@@ -31,4 +31,14 @@ public class FieldDaoImpl implements FieldDao {
         }
         return field;
     }
+
+    @Override
+    public void addField(Field field) {
+        String sql = "insert into field(uid, fname) values(?, ?)";
+        try {
+            template.update(sql, field.getUid(), field.getFname());
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+        }
+    }
 }

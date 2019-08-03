@@ -19,4 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
     public Category findFirst(int id) {
         return dao.findFirst(id);
     }
+
+    @Override
+    public void addCategory(Category category) {
+        dao.addCategory(category);
+    }
 }

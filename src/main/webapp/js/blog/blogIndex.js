@@ -1,4 +1,14 @@
 $(function () {
+    // 获取登录用户信息
+    var user;
+    $.get("/user/getLoginUser", {}, function (data) {
+        if (data == "" || data == undefined) {
+            alert("请先登录")
+        } else {
+            user = data;
+        }
+    });
+
     // 发送请求请求领域名称
     $.get("/field/findAll", {}, function (data) {
         var btns = '';
@@ -6,7 +16,7 @@ $(function () {
             var btn = '<button type="button" class="btn btn-secondary bg-success fbtn" id="f' + data[i].id + '">' + data[i].fname + '</button>'
             btns += btn;
         }
-        btns += '<button type="button" class="btn btn-secondary bg-success"><img src="../../images/icon_img/plus-2x.png"></button>';
+        btns += '<button type="button" class="btn btn-secondary bg-success" id="addField"><img src="../../images/icon_img/plus-2x.png"></button>';
 
         $("#fieldList").html(btns);
     });
@@ -14,9 +24,11 @@ $(function () {
     // 默认请求id为1的field的category发送请求请求分类名称
     findAllCategory(0);
     // 点击filed时加载对应category的name
+    let currentFid;
     $(document).on("click", ".fbtn", function() {
         var fbtnId = $(this).attr("id");
         fbtnId = fbtnId.substring(1);
+        currentFid = fbtnId;
         findAllCategory(fbtnId);
     });
 
@@ -54,6 +66,57 @@ $(function () {
         });
     });
 
+    // 增加领域 点击事件
+    let fieldFlag = true;
+    $(document).on("click", "#addField", function () {
+        if (fieldFlag) {
+            $("#addFieldForm").css("display", "block");
+            fieldFlag = false;
+        } else {
+            $("#addFieldForm").css("display", "none");
+            fieldFlag = true;
+        }
+    })
+    $("#AddFieldCancel").click(function () {
+        $("#addFieldForm").css("display", "none");
+        fieldFlag = true;
+    })
+    // 增加领域 提交事件
+    $("#addFieldForm").submit(function () {
+        $.post("/field/addField", {"fname": $("#addFieldInput").val()}, function (data) {
+            window.location.href="/"
+        })
+    });
+    // 增加分类 点击事件
+    let categoryFlag = true;
+    $(document).on("click", "#addCategory", function () {
+        if (categoryFlag) {
+            $("#addCategoryForm").css("display", "block");
+            categoryFlag = false;
+        } else {
+            $("#addCategoryForm").css("display", "none");
+            categoryFlag = true;
+        }
+    })
+    $("#AddCategoryCancel").click(function () {
+        $("#addCategoryForm").css("display", "none");
+        categoryFlag = true;
+    })
+    // 增加分类 提交事件
+    $("#addCategoryForm").submit(function () {
+        let data = {
+            "cname": $("#addCategoryInput").val(),
+            "fid": currentFid,
+        };
+        if (data.fid == "" || data.fid == undefined) {
+            alert("请先点击要增加分类的领域");
+        } else {
+            $.post("/category/addCategory", data, function (data) {
+                window.location.href="/"
+            });
+        }
+    });
+
 });
 
 function findAllCategory(fid) {
@@ -64,7 +127,7 @@ function findAllCategory(fid) {
             var btn = '<button type="button" class="btn btn-secondary cbtn" id="c' + data[i].id + '">'+data[i].cname+'</button>';
             btns += btn;
         }
-        btns += '<button type="button" class="btn btn-secondary"><img src="../../images/icon_img/plus-2x.png"></button>';
+        btns += '<button type="button" class="btn btn-secondary" id="addCategory"><img src="../../images/icon_img/plus-2x.png"></button>';
         btns += '<button type="button" class="btn btn-secondary" id="addAssay">新增文章</button>';
         $("#categoryList").html(btns);
     })
