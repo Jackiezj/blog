@@ -36,7 +36,9 @@ $(function () {
     // 点击文章列表某个文章, 打开详情页面
     $(document).on("click", ".assaya", function () {
         // 跳转对应页面并回显数据
-        location.href="/";
+        var abtnId = $(this).attr("id");
+        abtnId = abtnId.substring(1);
+        location.href="/html/blog/blogDetail.html?aid="+abtnId;
     })
 
 });
@@ -71,7 +73,7 @@ function assayListHtml(data) {
     var assayList = "";
     for (var i = 0; i < data.length; i++) {
         var assay =
-            '<a class="assaya" href="javascript:void(0)" style="text-decoration: none; color: #000;" id=a"'+data[i].id+'">' +
+            '<a class="assaya" href="javascript:void(0)" style="text-decoration: none; color: #000;" id="a'+data[i].id+'">' +
             '            <br>\n' +
             '            <div class="media shadow-sm p-3 bg-white rounded">\n' +
             '                <img class="mr-3 assayListLogo" src="'+data[i].logo+'" alt="image">\n' +
