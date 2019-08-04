@@ -1,11 +1,50 @@
 package com.jackiezz.blog.domain;
 
+import java.util.Date;
+
 public class Assay {
     private int id;
     private String aname;
     private String digest;
     private String content;
     private int cid;
+    private int uid;
+    private Date createTime;
+    private Date updateTime;
+
+    public int getUid() {
+        return uid;
+    }
+
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    private String logo;
 
     @Override
     public String toString() {

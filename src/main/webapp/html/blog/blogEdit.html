@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title>BlogEdit</title>
+
+    <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../../images/logo/favicon.ico">
+    <!--editor-->
+    <link rel="stylesheet" href="/lib/editor/examples/css/style.css"/>
+    <link rel="stylesheet" href="/lib/editor/css/editormd.preview.css"/>
+    <link rel="stylesheet" href="/lib/editor/css/editormd.css"/>
+
+    <!--自定义CSS-->
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link rel="stylesheet" href="../../css/blogDetail.css">
+
+    <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
+    <!--editor-->
+    <script src="/lib/editor/lib/marked.min.js"></script>
+    <script src="/lib/editor/lib/prettify.min.js"></script>
+    <script src="/lib/editor/lib/raphael.min.js"></script>
+    <script src="/lib/editor/lib/underscore.min.js"></script>
+    <script src="/lib/editor/lib/sequence-diagram.min.js"></script>
+    <script src="/lib/editor/lib/flowchart.min.js"></script>
+    <script src="/lib/editor/lib/jquery.flowchart.min.js"></script>
+    <script src="/lib/editor/editormd.js"></script>
+
+    <!--自定义JS-->
+    <script src="/js/base/include.js"></script>
+    <script rel="script" src="../../js/blog/blogEdit.js"></script>
+
+
+</head>
+<body>
+<!--头部-->
+<div class="page-width header" id="header"></div>
+<hr>
+<!--中部-->
+<div class="page-width body">
+    <div id="layout">
+        <button id="show-table" type="button" class="btn btn-secondary bg-success"><p>打开目录</p></button>
+        <div id="sidebar">
+            <div class="markdown-body editormd-preview-container" id="custom-toc-container">#custom-toc-container</div>
+        </div>
+        <!--editor-->
+        <input id="aname" type="text" class="form-control" aria-describedby="sizing-addon2">
+        <input id="digest" type="text" class="form-control" aria-describedby="sizing-addon2">
+        <div id="test-editormd-view" class="pre-scrollable assayEditor">
+            <textarea id="content" style="display:none;" name="test-editormd-markdown-doc"></textarea>
+        </div>
+    </div>
+</div>
+
+</body>
+</body>
+</html>

@@ -1,97 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
     <meta charset="UTF-8">
     <title>BlogIndex</title>
 
     <link rel="stylesheet" href="../../lib/bootstrap-4.3.1/dist/css/bootstrap.min.css">
-<!--    <link rel="stylesheet" href="../../lib/editor.md-master/examples/css/style.css">-->
-    <link rel="stylesheet" href="../../lib/editor.md-master/css/editormd.preview.css">
-
-
     <link rel="shortcut icon" href="../../images/logo/favicon.ico">
+    <!--editor-->
+    <link rel="stylesheet" href="/lib/editor/examples/css/style.css"/>
+    <link rel="stylesheet" href="/lib/editor/css/editormd.preview.css"/>
+    <link rel="stylesheet" href="/lib/editor/css/editormd.css"/>
+
+    <!--自定义CSS-->
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="../../css/blogDetail.css">
 
     <script rel="script" src="../../js/jQuery/jquery.min.js"></script>
-    <script rel="script" src="../../lib/bootstrap-4.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/marked.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/prettify.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/raphael.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/underscore.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/sequence-diagram.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/flowchart.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/lib/jquery.flowchart.min.js"></script>
-    <script rel="script" src="../../lib/editor.md-master/editormd.js"></script>
+    <!--editor-->
+    <script src="/lib/editor/lib/marked.min.js"></script>
+    <script src="/lib/editor/lib/prettify.min.js"></script>
+    <script src="/lib/editor/lib/raphael.min.js"></script>
+    <script src="/lib/editor/lib/underscore.min.js"></script>
+    <script src="/lib/editor/lib/sequence-diagram.min.js"></script>
+    <script src="/lib/editor/lib/flowchart.min.js"></script>
+    <script src="/lib/editor/lib/jquery.flowchart.min.js"></script>
+    <script src="/lib/editor/editormd.js"></script>
 
+    <!--自定义JS-->
+    <script src="/js/base/include.js"></script>
     <script rel="script" src="../../js/blog/blogDetail.js"></script>
 
 
 </head>
 <body>
 <!--头部-->
-<div class="page-width header">
-    <div class="header-logo">
-        <a href="ex.html"><img src="../../images/logo/logo.png"></a>
-    </div>
-    <div class="nav header-nav-link">
-        <a class="" href="../base/login.html">登录/注册</a>
-        <a class="border-bottom border-success" href="ex.html">Blog</a>
-        <a class="" href="../tomato/tomatoIndex.html">Tomato</a>
-        <a class="" href="../books/booksIndex.html">Books</a>
-        <a class="" href="#">Tools</a>
-    </div>
-    <div class="header-search">
-        <form class="my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>
-</div>
+<div class="page-width header" id="header"></div>
 <hr>
 <!--中部-->
 <div class="page-width body">
     <div id="layout">
         <button id="show-table" type="button" class="btn btn-secondary bg-success"><p>打开目录</p></button>
+        <button id="edit-assay" type="button" class="btn btn-secondary bg-success"><p>编辑文章</p></button>
         <div id="sidebar">
             <div class="markdown-body editormd-preview-container" id="custom-toc-container">#custom-toc-container</div>
         </div>
-        <div id="test-editormd-view">
+        <!--editor-->
+        <h1 id="assayTitle" style="text-align: center"></h1>
+        <div id="test-editormd-view" class="pre-scrollable assayEditor">
             <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
         </div>
-<!--        <div id="test-editormd-view2">-->
-<!--            <textarea id="append-test" style="display:none;">-->
-<!--            </textarea>-->
-<!--        </div>-->
     </div>
 </div>
+
+</body>
 <hr>
 <!--底部-->
-<div class="bottom page-width">
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">中国加油</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">关于我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">联系我们</p></a><br>
-        <a href="#"><p class="text-center text-dark ">加入我们</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">传送门</p>
-        <hr>
-        <br>
-        <a href="#"><p class="text-center text-dark ">帮助中心</p></a><br>
-        <a href="#"><p class="text-center text-dark ">意见反馈</p></a><br>
-        <a href="#"><p class="text-center text-dark ">活动中心</p></a><br>
-    </div>
-    <div class="bottom-white"></div>
-    <div class=" bottom-div">
-        <p class="text-center text-secondary">成为铁杆粉</p>
-        <hr>
-        <br>
-        <img class="QRCode" src="../../images/logo/er.jpeg" style="width: 30%;" alt="">
-    </div>
-</div>
+<!--<div class="bottom page-width" id="footer"></div>-->
 </body>
 </html>

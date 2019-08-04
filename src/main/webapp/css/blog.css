@@ -39,3 +39,8 @@
 .assay_list {
     max-height: 100%;
 }
+
+.assayListLogo {
+    width: 80px;
+    height: 80px;
+}
